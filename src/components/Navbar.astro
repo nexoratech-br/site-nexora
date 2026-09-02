@@ -17,14 +17,23 @@
 
     </div>
 
-    <div id="mobile-menu" class="hidden">
-        <a href="#servicos">Serviços</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
+    <div id="mobile-menu" class="hidden flex-col gap-4 px-6 pb-4 text-gray-300">
+        <a class="hover:text-purple-400" href="#servicos">Serviços</a>
+        <a class="hover:text-purple-400" href="#projetos">Projetos</a>
+        <a class="hover:text-purple-400" href="#contato">Contato</a>
     </div>
 
 </nav>
 
 <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+    });
+    mobileLinks.forEach((link) => {
 
+    });
 </script>
