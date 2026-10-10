@@ -1,53 +1,88 @@
-<nav class="w-full bg-[#0B0B0F] fixed top-0 left-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-        <div class="flex items-center gap-2">
-            <img src="/nexora-icon.png" alt="Nexora Technology" class="w-8 h-8" />
-
-            <span class="text-purple-400 text-lg font-bold">
-                NEXORA
-            </span>
+---
+import { Image } from 'astro:assets';
+import logo from '../../public/nexora-icon.png';
+const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#projetos', label: 'Projetos' }, { href: '#contato', label: 'Contato' }];
+---
+<header class="nexora-header fixed inset-x-0 top-0 z-50 text-white">
+    <nav aria-label="Navegação principal" class="nav-inner mx-auto flex items-center justify-between">
+        <a href="#inicio" class="brand flex items-center gap-3" aria-label="Nexora Technology — início">
+            <Image src={logo} alt="" width={48} height={48} format="webp" loading="eager" class="brand-icon" />
+            <span class="brand-name">NEXORA<span class="brand-descriptor">TECHNOLOGY</span></span>
+        </a>
+        <div class="desktop-nav hidden items-center gap-9 md:flex">
+            {links.map(({ href, label }) => <a class="nav-link" href={href}>{label}</a>)}
         </div>
-
-        <div class="hidden md:flex gap-6">
-            <a class="text-gray-300 hover:text-purple-400" href="#servicos">Serviços</a>
-            <a class="text-gray-300 hover:text-purple-400" href="#projetos">Projetos</a>
-            <a class="text-gray-300 hover:text-purple-400" href="#contato">Contato</a>
-        </div>
-
-        <button id="menu-btn" class="md:hidden flex text-purple-400 text-2xl cursor-pointer">
-            ☰
-        </button>
-
-    </div>
-
-    <div id="mobile-menu" class="hidden flex flex-col gap-4 px-6 pb-4 text-gray-300">
-        <a class="hover:text-purple-400" href="#servicos">Serviços</a>
-        <a class="hover:text-purple-400" href="#projetos">Projetos</a>
-        <a class="hover:text-purple-400" href="#contato">Contato</a>
-    </div>
-
-</nav>
-
+        <a href="#contato" class="nav-cta hidden items-center gap-5 md:inline-flex">Quero meu site <span aria-hidden="true">↗</span></a>
+        <details class="mobile-navigation md:hidden">
+            <summary class="menu-toggle" aria-label="Menu de navegação">
+                <span>Menu</span><span class="menu-lines" aria-hidden="true"><span></span><span></span></span>
+            </summary>
+            <div class="mobile-panel">
+                {links.map(({ href, label }) => <a class="mobile-link" href={href}>{label}<span aria-hidden="true">↗</span></a>)}
+                <a class="mobile-cta" href="#contato">Quero meu site <span aria-hidden="true">↗</span></a>
+            </div>
+        </details>
+    </nav>
+</header>
 <script>
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileLinks = mobileMenu.querySelectorAll("a");
-
-    menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-
-        if (mobileMenu.classList.contains("hidden")) {
-            menuBtn.textContent = "☰";
-        } else {
-            menuBtn.textContent = "✕";
+    const header = document.querySelector<HTMLElement>('.nexora-header');
+    let scrolled: boolean | undefined;
+    const updateHeader = () => {
+        const nextScrolled = window.scrollY > 8;
+        if (nextScrolled !== scrolled) {
+            header?.toggleAttribute('data-scrolled', nextScrolled);
+            scrolled = nextScrolled;
         }
-    });
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('pageshow', updateHeader);
 
-    mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.add("hidden");
-            menuBtn.textContent = "☰";
-        });
+    const menu = document.querySelector<HTMLDetailsElement>('.mobile-navigation');
+    const toggle = menu?.querySelector<HTMLElement>('summary');
+    menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.open = false; }));
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu?.open) { menu.open = false; toggle?.focus(); }
+    });
+    document.addEventListener('click', (event) => {
+        if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+        if (event.matches && menu) menu.open = false;
     });
 </script>
+<style>
+    .nexora-header { font-family: Arial, Helvetica, sans-serif; background: #0b0b0fd6; border-bottom: 1px solid transparent; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background 180ms, border-color 180ms; }
+    .nexora-header[data-scrolled] { background: #0b0b0fea; border-bottom-color: #c5adcc24; }
+    .nav-inner { max-width: 1440px; min-height: 78px; padding: 0 56px; }
+    .brand { text-decoration: none; flex-shrink: 0; }
+    .brand-icon { width: 44px; height: 44px; object-fit: contain; }
+    .brand-name { font-size: 21px; font-weight: 700; letter-spacing: .1em; line-height: 1; }
+    .brand-descriptor { display: block; margin-top: 7px; font-size: 10px; letter-spacing: .29em; color: #b9b5c5; }
+    .desktop-nav { gap: 34px; }
+    .nav-link { position: relative; color: #d5cdd8; font-size: 15px; padding: 12px 0; transition: color 180ms; }
+    .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 5px; height: 1px; background: #c3a4ff; transform: scaleX(0); transform-origin: left; transition: transform 180ms; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:hover { color: #c3a4ff; }
+    .nav-cta { min-height: 46px; padding: 10px 17px; border: 1px solid #d4bfd042; border-radius: 4px; color: #e7dce8; font-size: 14px; font-weight: 500; gap: 18px; transition: border-color 180ms, background 180ms; }
+    .nav-cta span { color: #cfb0e9; font-size: 20px; line-height: 1; }
+    .nav-cta:hover { border-color: #d4bfd080; background: #d4bfd00a; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid #d3baff; outline-offset: 5px; }
+    .menu-toggle { min-height: 48px; min-width: 72px; display: flex; align-items: center; justify-content: end; gap: 12px; cursor: pointer; list-style: none; font-size: 14px; }
+    .menu-toggle::-webkit-details-marker { display: none; }
+    .menu-lines { width: 22px; display: grid; gap: 6px; }
+    .menu-lines span { height: 1px; width: 100%; background: #ede7f7; transition: transform 180ms; }
+    details[open] .menu-lines span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    details[open] .menu-lines span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .mobile-panel { position: absolute; top: calc(100% + 8px); left: 16px; right: 16px; max-height: calc(100dvh - 94px); overflow-y: auto; overscroll-behavior: contain; padding: 12px 24px 24px; background: #19151f; border: 1px solid #59475c; border-radius: 4px; box-shadow: 0 24px 50px #0009; }
+    .mobile-link { display: flex; justify-content: space-between; align-items: center; min-height: 60px; font-size: 20px; border-bottom: 1px solid #ffffff14; }
+    .mobile-link span { color: #b99ae6; }
+    .mobile-cta { display: flex; justify-content: space-between; padding: 16px 18px; margin-top: 22px; background: #bc9bdf; color: #1c1423; border-radius: 4px; font-weight: 700; }
+    @media (max-width: 1023px) { .nav-inner { padding-inline: 32px; } .desktop-nav { gap: 24px; } }
+    @media (max-width: 767px) { .nav-inner { min-height: 70px; margin-inline: 20px; padding-inline: 0; } .brand-icon { width: 36px; height: 36px; } .brand-name { font-size: 19px; } .brand-descriptor { font-size: 9px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+    @media (min-width: 1200px) {
+        .nav-inner { max-width: var(--desktop-shell); padding-inline: var(--desktop-gutter); min-height: 80px; }
+    }
+</style>

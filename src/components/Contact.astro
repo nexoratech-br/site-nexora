@@ -1,16 +1,49 @@
-<section id="contato" class="scroll-mt-16 bg-[#0B0B0F] text-white py-20">
-    <h2 class="text-center text-3xl font-bold px-6">
-        Vamos colocar seu negócio no digital?
-    </h2>
-
-    <p class="text-gray-300 text-center text-lg mt-4 max-w-xl mx-auto px-6">
-        Conte um pouco sobre seu negócio e vamos conversar sobre como criar sua presença digital.
-    </p>
-
-    <div class="text-center">
-        <a href="https://wa.me/message/JBMLEKY3GEXEB1" class="bg-purple-600 px-6 py-3 rounded-lg font-bold hover:bg-purple-700 transition inline-block mt-6">
-            Falar com a Nexora →
-        </a>
+---
+import { whatsappUrl } from '../data/contact';
+---
+<section id="contato" aria-labelledby="contact-title" class="nexora-section contact">
+    <div class="section-shell">
+        <p class="section-kicker">Vamos conversar</p>
+        <div class="contact-layout">
+            <h2 id="contact-title">Seu negócio merece<br />ser <span>bem apresentado.</span></h2>
+            <div class="contact-content">
+                <p>Se chegou a hora de melhorar sua presença digital, a Nexora pode criar uma experiência pensada para o seu negócio.</p>
+                <div class="contact-actions">
+                    <a class="contact-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Quero meu site <span aria-hidden="true">↗</span><span class="sr-only"> — conversar no WhatsApp, em nova aba</span></a>
+                    <a class="contact-secondary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span><span class="sr-only"> — em nova aba</span></a>
+                </div>
+            </div>
+        </div>
     </div>
-
 </section>
+<style>
+    .contact { background: #2a1b37; overflow: hidden; }
+    .contact::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 96% 0%, #7b508044, transparent 65%), linear-gradient(125deg, #20142c, transparent 60%); pointer-events: none; }
+    .contact .section-shell { padding-block: 108px 115px; }
+    .contact .section-kicker { color: #dbbddf; }
+    .contact-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: end; }
+    h2 { margin: 0; font-size: clamp(46px, 4.6vw, 66px); line-height: 1.09; font-weight: 600; letter-spacing: -.055em; text-wrap: pretty; }
+    h2 span { color: #d4b8ed; }
+    .contact-content p { max-width: 415px; margin: 0; font-size: 18px; line-height: 1.7; color: #ddcede; text-wrap: pretty; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 16px 25px; align-items: center; margin-top: 28px; }
+    .contact-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 29px; padding: 17px 22px; min-height: 60px; background: #e2caef; color: #25172f; font-size: 16px; font-weight: 700; border-radius: 4px; white-space: nowrap; transition: background 180ms, transform 180ms; }
+    .contact-primary span[aria-hidden] { font-size: 23px; line-height: 1; }
+    .contact-primary:hover { background: #f0dffd; transform: translateY(-2px); }
+    .contact-secondary { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; font-size: 16px; color: #ede0f0; text-underline-offset: 6px; }
+    .contact-secondary:hover { text-decoration: underline; }
+    @media (max-width: 1100px) { .contact-layout { gap: 40px; grid-template-columns: 1.1fr .9fr; } h2 { font-size: 50px; } }
+    @media (max-width: 767px) {
+        .contact .section-shell { padding-block: 72px 76px; }
+        .contact-layout { grid-template-columns: minmax(0, 1fr); gap: 27px; }
+        h2 { font-size: clamp(41px, 10.7vw, 57px); line-height: 1.1; }
+        .contact-content p { font-size: 17px; line-height: 1.65; }
+        .contact-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 13px; }
+        .contact-primary { width: 100%; justify-content: space-between; } .contact-secondary { justify-content: center; }
+    }
+
+    @media (min-width: 1200px) {
+        .contact .section-shell { padding-block: var(--desktop-section-space); }
+        .contact-layout { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: var(--desktop-gap); }
+        h2 { font-size: 58px; }
+    }
+</style>

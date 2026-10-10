@@ -1,0 +1,50 @@
+.nexora-section, .nexora-footer { font-family: Arial, Helvetica, sans-serif; color: #f1ecf2; }
+.nexora-section { position: relative; isolation: isolate; scroll-margin-top: 96px; }
+.nexora-section .section-shell, .nexora-footer .footer-shell { max-width: 1440px; margin-inline: auto; padding-inline: 56px; }
+.nexora-section .section-shell { padding-block: 104px; }
+.nexora-section .section-kicker { display: flex; align-items: center; gap: 12px; margin: 0 0 31px; font-size: 12px; font-weight: 500; letter-spacing: .12em; line-height: 1.6; color: #c6afdb; }
+.nexora-section .section-kicker::before { content: ''; width: 26px; height: 1px; background: currentColor; flex-shrink: 0; }
+.nexora-section .section-title { margin: 0; font-size: clamp(40px, 4.3vw, 62px); line-height: 1.12; font-weight: 600; letter-spacing: -.05em; text-wrap: pretty; }
+.nexora-section .section-title span { color: #bc9bdd; }
+.nexora-section .section-lead { max-width: 365px; margin: 0; font-size: 18px; line-height: 1.7; color: #c0b6c6; text-wrap: pretty; }
+.nexora-section .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 60px; align-items: end; margin-bottom: 65px; }
+.nexora-section a:focus-visible, .nexora-footer a:focus-visible { outline: 2px solid #e2c7ff; outline-offset: 6px; }
+.nexora-section .text-link { display: inline-flex; align-items: center; gap: 18px; min-height: 48px; color: #e1c9f5; font-size: 16px; text-underline-offset: 7px; }
+.nexora-section .text-link:hover { text-decoration: underline; }
+.nexora-section .text-link span { font-size: 22px; }
+@media (max-width: 1100px) { .nexora-section .section-shell, .nexora-footer .footer-shell { padding-inline: 32px; } .nexora-section .section-heading { gap: 35px; } }
+@media (max-width: 767px) {
+    .nexora-section { scroll-margin-top: 86px; }
+    .nexora-section .section-shell, .nexora-footer .footer-shell { padding-inline: 24px; }
+    .nexora-section .section-shell { padding-block: 70px; }
+    .nexora-section .section-kicker { font-size: 11px; margin-bottom: 24px; }
+    .nexora-section .section-title { font-size: clamp(37px, 9.7vw, 52px); line-height: 1.13; }
+    .nexora-section .section-heading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 40px; }
+    .nexora-section .section-lead { font-size: 17px; line-height: 1.65; }
+}
+@media (max-width: 359px) { .nexora-section .section-shell, .nexora-footer .footer-shell { padding-inline: 20px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .nexora-section *, .nexora-section *::before, .nexora-section *::after, .nexora-footer * { animation: none !important; transition: none !important; } }
+
+/* Desktop layout tokens: 1200px of content inside a shared 1296px shell. */
+@media (min-width: 1200px) {
+    :root {
+        --desktop-shell: 1296px;
+        --desktop-gutter: 48px;
+        --desktop-gap: 48px;
+        --desktop-section-space: 96px;
+        --desktop-heading-space: 56px;
+    }
+    .nexora-section .section-shell, .nexora-footer .footer-shell {
+        max-width: var(--desktop-shell);
+        padding-inline: var(--desktop-gutter);
+    }
+    .nexora-section .section-shell { padding-block: var(--desktop-section-space); }
+    .nexora-section .section-heading {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+        gap: var(--desktop-gap);
+        margin-bottom: var(--desktop-heading-space);
+    }
+    .nexora-section .section-kicker { margin-bottom: 24px; }
+    .nexora-section .section-title { font-size: 58px; }
+    .nexora-section .section-lead { max-width: 400px; }
+}

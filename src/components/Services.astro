@@ -1,36 +1,50 @@
-<section id="servicos" class="scroll-mt-16 bg-[#111118] text-white py-20">
-    <h2 class="text-3xl font-bold text-center">
-        Nossos serviços
-    </h2>
-
-    <div class="max-w-6xl mx-auto px-6 mt-12 grid gap-6 lg:grid-cols-3">
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-purple-400 transition hover:-translate-y-1">
-            <h3 class="text-xl font-bold text-purple-400">
-                Landing Pages
-            </h3>
-            <p class="text-gray-300 mt-3">
-                Criamos páginas profissionais para apresentar seu negócio e transformar visitantes em negócios.
-            </p>
-        </div>
-
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-purple-400 transition hover:-translate-y-1">
-            <h3 class="text-xl font-bold text-purple-400">
-                Design Moderno
-            </h3>
-
-            <p class="text-gray-300 mt-3">
-                Criamos interfaces modernas e alinhadas à identidade do seu negócio.
-            </p>
-        </div>
-
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-purple-400 transition hover:-translate-y-1">
-            <h3 class="text-xl font-bold text-purple-400">
-                Responsividade
-            </h3>
-
-            <p class="text-gray-300 mt-3">
-                Desenvolvemos páginas adaptadas para oferecer uma boa experiência em celulares, tablets e computadores.
-            </p>
-        </div>
+---
+import '../styles/sections.css';
+const pillars = [
+    { number: '01', title: 'Seu negócio bem apresentado', description: 'Uma presença profissional para o cliente entender quem você é, o que oferece e por que pode confiar no seu negócio.' },
+    { number: '02', title: 'Um caminho claro até o contato', description: 'Conteúdo, serviços e chamadas organizados para o visitante encontrar o que precisa e dar o próximo passo.' },
+    { number: '03', title: 'Boa experiência em qualquer tela', description: 'Seu site funcionando bem e mantendo o cuidado com a apresentação no celular, no tablet e no computador.' },
+];
+---
+<section id="servicos" aria-labelledby="services-title" class="nexora-section services">
+    <div class="section-shell">
+        <p class="section-kicker">Serviços</p>
+        <header class="section-heading">
+            <h2 id="services-title" class="section-title">Seu negócio,<br /><span>bem apresentado.</span></h2>
+            <p class="section-lead">Um site precisa mostrar o que você faz bem. E tornar fácil para o cliente falar com você.</p>
+        </header>
+        <ol class="service-list" role="list">
+            {pillars.map(({ number, title, description }) => (
+                <li class="service-row">
+                    <span class="service-number" aria-hidden="true">{number}</span>
+                    <h3>{title}</h3>
+                    <p class="service-description">{description}</p>
+                </li>
+            ))}
+        </ol>
     </div>
 </section>
+<style>
+    .services { background: #0b0b0f; overflow: hidden; }
+    .services::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 0% 59%, #3e284533, transparent 55%); pointer-events: none; }
+    .service-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #c7b3d02b; }
+    .service-row { position: relative; display: grid; grid-template-columns: 148px 1.15fr .85fr; gap: 45px; align-items: center; padding: 47px 0; border-bottom: 1px solid #c7b3d023; }
+    .service-row::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 95px; height: 1px; background: #bb99dc; transform: scaleX(.28); transform-origin: left; transition: transform 250ms; }
+    .service-number { font-size: 104px; letter-spacing: -.08em; line-height: 1; color: #a48caf; font-variant-numeric: tabular-nums; transition: color 250ms; }
+    h3 { margin: 0; max-width: 420px; font-size: clamp(28px, 2.65vw, 37px); line-height: 1.23; font-weight: 500; letter-spacing: -.035em; text-wrap: balance; }
+    .service-description { margin: 0; max-width: 350px; font-size: 17px; line-height: 1.75; color: #c0b6c9; text-wrap: pretty; }
+    @media (hover: hover) and (pointer: fine) { .service-row:hover::after { transform: scaleX(1); } .service-row:hover .service-number { color: #d0b3ef; } }
+    @media (max-width: 1100px) { .service-row { grid-template-columns: 108px 1fr 1fr; gap: 26px; } .service-number { font-size: 82px; } h3 { font-size: 29px; } }
+    @media (max-width: 900px) { .service-row { grid-template-columns: 90px minmax(0, 1fr); gap: 17px 28px; align-items: start; } .service-number { grid-row: 1 / 3; } .service-description { grid-column: 2; max-width: 540px; } h3 { max-width: 100%; text-wrap: pretty; } }
+    @media (max-width: 767px) { .service-row { grid-template-columns: 58px minmax(0, 1fr); gap: 18px 20px; padding-block: 32px; } .service-number { font-size: 52px; } h3 { font-size: 27px; } .service-description { font-size: 16px; line-height: 1.7; } }
+    @media (max-width: 359px) { .service-row { grid-template-columns: 46px minmax(0, 1fr); gap: 18px 16px; } .service-number { font-size: 44px; grid-row: auto; } h3 { font-size: 25px; } .service-description { grid-column: 1 / -1; } }
+
+    @media (min-width: 1200px) {
+        .service-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--desktop-gap); border-top: 0; }
+        .service-row { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; align-items: start; gap: 24px; padding: 28px 0 0; border-top: 1px solid #c7b3d02b; border-bottom: 0; }
+        .service-row::after { top: -1px; bottom: auto; width: 72px; }
+        .service-number { font-size: 64px; }
+        h3 { max-width: 100%; min-height: 78px; font-size: 31px; line-height: 1.25; }
+        .service-description { max-width: 100%; line-height: 1.7; }
+    }
+</style>

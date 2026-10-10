@@ -1,0 +1,21 @@
+<div class="hero-backdrop" aria-hidden="true">
+    <div class="tonal-field"></div>
+    <div class="side-light"></div>
+    <div class="shadow-plane"></div>
+    <div class="grain"></div>
+    <div class="edge"></div>
+</div>
+<style>
+    .hero-backdrop { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .tonal-field { position: absolute; inset: 0; background: linear-gradient(112deg, #0b0b0f 15%, #121017 42%, #271c30 73%, #1b1621 100%); }
+    .side-light { position: absolute; inset: 0; background: radial-gradient(ellipse at 99% 12%, #9b879f20, transparent 43%), radial-gradient(ellipse at 69% 61%, #54395d36, transparent 47%); }
+    .shadow-plane { position: absolute; inset: 0; background: linear-gradient(157deg, transparent 35%, #08090d66 62%, transparent 77%), linear-gradient(0deg, #0b0b0f, transparent 22%); }
+    .grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.78%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20opacity%3D%22.5%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E"); background-size: 160px 160px; opacity: .06; }
+    .edge { position: absolute; width: 64%; height: 100%; top: 7%; right: -24%; border-left: 1px solid #d3b7d90c; transform: rotate(-26deg); }
+    @media (max-width: 767px) {
+        .tonal-field { background: linear-gradient(155deg, #0b0b0f 9%, #17121c 46%, #2a1d32 73%, #151018); }
+        .side-light { background: radial-gradient(ellipse at 100% 62%, #9b879f20, transparent 55%); }
+        .shadow-plane { background: linear-gradient(147deg, transparent 37%, #08090d55 65%, transparent 84%), linear-gradient(0deg, #0b0b0f, transparent 18%); }
+        .grain { opacity: .045; } .edge { display: none; }
+    }
+</style>
