@@ -12,14 +12,14 @@ const { mobile = false } = Astro.props;
             <span class="concept-eyebrow">CUIDADO QUE TRANSFORMA</span>
             <p>Um novo olhar<br /> para o seu<br /> <em>sorriso.</em></p>
             <span class="concept-description">Precisão, acolhimento e beleza.<br />Uma experiência pensada para você.</span>
-            <span class="concept-button">Conheça a clínica <span>↗</span></span>
+            <span class="concept-button">Conheça a clínica</span>
         </div>
         <div class="concept-photo">
             <Image src={clinic} alt="" widths={[240, 480, 720]} sizes={mobile ? '(max-width: 767px) 110px, 150px' : '(max-width: 767px) 42vw, 25vw'} width={480} format="webp" quality={85} loading="eager" fetchpriority={mobile ? 'auto' : 'high'} />
             <span class="photo-note">Um espaço para cuidar de você.</span>
         </div>
     </div>
-    <div class="concept-bottom"><span>ESTÉTICA · SAÚDE · BEM-ESTAR</span><span>O cuidado está nos detalhes. ↗</span></div>
+    <div class="concept-bottom"><span>ESTÉTICA · SAÚDE · BEM-ESTAR</span><span>O cuidado está nos detalhes.</span></div>
 </div>
 <style>
     .concept { width: 100%; height: 100%; display: flex; flex-direction: column; background: #f3efe7; color: #393d32; font-family: Arial, Helvetica, sans-serif; container-type: inline-size; }
@@ -32,7 +32,7 @@ const { mobile = false } = Astro.props;
     .concept-eyebrow { font-size: 1.05cqw; letter-spacing: .16em; color: #7b7d65; }
     .concept-copy p { font-family: Georgia, serif; font-size: 5.1cqw; font-weight: 400; line-height: 1.09; letter-spacing: -.045em; margin: 6% 0; } .concept-copy em { color: #787958; }
     .concept-description { display: none; }
-    .concept-button { margin-top: 9%; padding: 6% 8%; font-size: 1.3cqw; background: #454b3c; color: #fffaf0; display: flex; gap: 3cqw; border-radius: 2px; }
+    .concept-button { margin-top: 9%; padding: 6% 8%; font-size: 1.3cqw; background: #454b3c; color: #fffaf0; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
     .concept-photo { position: relative; overflow: hidden; margin: 4% 6% 4% 0; border-radius: 45% 45% 2px 2px / 28% 28% 2px 2px; }
     .concept-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 55%; }
     .photo-note { position: absolute; bottom: 5%; left: 10%; right: 10%; font-size: 1.05cqw; color: #fff; text-shadow: 0 1px 5px #000; }
@@ -46,7 +46,7 @@ const { mobile = false } = Astro.props;
     .concept-mobile .concept-copy p { font-size: 16cqw; margin: 9% 0; }
     .concept-mobile .concept-copy p br { display: none; }
     .concept-mobile .concept-description { display: none; }
-    .concept-mobile .concept-button { font-size: 4cqw; margin-top: 0; padding: 8% 10%; gap: 7cqw; }
+    .concept-mobile .concept-button { font-size: 4cqw; margin-top: 0; padding: 8% 10%; }
     .concept-mobile .concept-photo { flex: 1; min-height: 0; margin: 0 10% 10%; border-radius: 45% 45% 2px 2px / 28% 28% 2px 2px; }
     .concept-mobile .photo-note, .concept-mobile .concept-bottom { display: none; }
 </style>

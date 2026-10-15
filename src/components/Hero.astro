@@ -12,8 +12,8 @@ import HeroBackdrop from './HeroBackdrop.astro';
             <div class="hero-intro relative z-10">
                 <p class="hero-description">Criamos sites para negócios locais que querem transmitir mais confiança, valor e profissionalismo desde o primeiro clique.</p>
                 <div class="hero-actions flex flex-wrap items-center">
-                    <a href="#contato" class="primary-cta inline-flex items-center justify-between">Quero meu site <span aria-hidden="true">↗</span></a>
-                    <a href="#projetos" class="secondary-cta inline-flex items-center">Ver projetos <span aria-hidden="true">↗</span></a>
+                    <a href="#contato" class="primary-cta inline-flex items-center justify-center">Quero meu site</a>
+                    <a href="#projetos" class="secondary-cta inline-flex items-center">Ver projetos</a>
                 </div>
             </div>
             <HeroShowcase />
@@ -33,10 +33,10 @@ import HeroBackdrop from './HeroBackdrop.astro';
     .hero-intro { padding-top: 45px; }
     .hero-description { max-width: 398px; font-size: 18px; line-height: 1.75; color: #c7c0c9; margin: 0; text-wrap: pretty; }
     .hero-actions { gap: 27px; margin-top: 30px; }
-    .primary-cta { min-height: 60px; padding: 16px 22px; gap: 28px; border: 1px solid #dfc9f44d; border-radius: 4px; background: #bc9bdf; color: #1c1423; font-size: 16px; font-weight: 700; white-space: nowrap; box-shadow: inset 0 1px 0 #fff3, 0 8px 22px #0003; transition: background 180ms, transform 180ms; }
+    .primary-cta { min-height: 60px; padding: 16px 22px; border: 1px solid #dfc9f44d; border-radius: 4px; background: #bc9bdf; color: #1c1423; font-size: 16px; font-weight: 700; white-space: nowrap; box-shadow: inset 0 1px 0 #fff3, 0 8px 22px #0003; transition: background 180ms, transform 180ms; }
     .primary-cta span { font-size: 23px; line-height: 1; }
     .primary-cta:hover { background: #d0b5ed; transform: translateY(-2px); }
-    .secondary-cta { gap: 10px; min-height: 48px; font-size: 16px; color: #d7ccd9; white-space: nowrap; text-underline-offset: 7px; transition: color 180ms; }
+    .secondary-cta { min-height: 48px; font-size: 16px; color: #d7ccd9; white-space: nowrap; text-underline-offset: 7px; transition: color 180ms; }
     .secondary-cta:hover { color: #ebd9fc; text-decoration: underline; } .secondary-cta span { font-size: 18px; }
     a:focus-visible { outline: 2px solid #e1c5ff; outline-offset: 5px; }
     @media (max-width: 1100px) and (min-width: 768px) {
@@ -46,7 +46,7 @@ import HeroBackdrop from './HeroBackdrop.astro';
         .hero-intro { padding-top: 28px; }
         .hero-description { font-size: 17px; line-height: 1.7; }
         .hero-actions { gap: 20px; }
-        .primary-cta { padding-inline: 18px; gap: 20px; font-size: 15px; }
+        .primary-cta { padding-inline: 18px; font-size: 15px; }
         .secondary-cta { font-size: 15px; }
     }
     @media (max-width: 767px) {
@@ -58,15 +58,15 @@ import HeroBackdrop from './HeroBackdrop.astro';
         .hero-intro { padding: 0; }
         .hero-description { max-width: 430px; font-size: 17px; line-height: 1.65; }
         .hero-actions { gap: 24px; margin-top: 26px; }
-        .primary-cta { min-height: 58px; padding-inline: 19px; gap: 23px; font-size: 15px; }
-        .secondary-cta { font-size: 15px; gap: 9px; }
+        .primary-cta { min-height: 58px; padding-inline: 19px; font-size: 15px; }
+        .secondary-cta { font-size: 15px; }
     }
     @media (max-width: 359px) {
         .hero-inner { padding-inline: 20px; }
         h1 { font-size: 37px; }
         .hero-actions { gap: 18px; }
-        .primary-cta { padding-inline: 15px; gap: 16px; font-size: 14px; } .primary-cta span { font-size: 20px; }
-        .secondary-cta { font-size: 14px; gap: 6px; }
+        .primary-cta { padding-inline: 15px; font-size: 14px; } .primary-cta span { font-size: 20px; }
+        .secondary-cta { font-size: 14px; }
     }
     @media (prefers-reduced-motion: no-preference) {
         .hero-copy { animation: copy-enter 600ms ease-out both; }

@@ -22,12 +22,12 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#como-funcion
             <div class="footer-contact">
                 <p class="footer-label">Contato</p>
                 <p>Conte sobre seu negócio.<br />Vamos conversar sobre o site.</p>
-                <a class="whatsapp-link" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span><span class="sr-only"> — em nova aba</span></a>
+                <a class="whatsapp-link" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp<span class="sr-only"> — em nova aba</span></a>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© {year} Nexora Technology. Todos os direitos reservados.</p>
-            <a href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+            <a href="#inicio">Voltar ao topo <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 16V4M2 8l4-4 4 4" /></svg></span></a>
         </div>
     </div>
 </footer>
@@ -44,7 +44,7 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#como-funcion
     nav a { display: block; width: fit-content; min-height: 44px; padding-block: 11px; font-size: 15px; color: #d8ccdF; }
     nav a:hover, .whatsapp-link:hover, .footer-bottom a:hover { color: #e7c9ff; text-decoration: underline; text-underline-offset: 5px; }
     .footer-contact > p:not(.footer-label) { margin: 0 0 13px; font-size: 16px; line-height: 1.75; color: #bdb2c6; }
-    .whatsapp-link { display: inline-flex; align-items: center; gap: 14px; min-height: 48px; font-size: 16px; color: #dfc5f2; }
+    .whatsapp-link { display: inline-flex; align-items: center; min-height: 48px; font-size: 16px; color: #dfc5f2; }
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid #cab1d523; padding-top: 20px; color: #b0a3ba; font-size: 12px; line-height: 1.7; }
     .footer-bottom p { margin: 0; } .footer-bottom a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; white-space: nowrap; } .footer-bottom a span { font-size: 20px; }
     @media (max-width: 1100px) { .footer-main { gap: 35px; grid-template-columns: 1fr .65fr .85fr; } }
@@ -52,10 +52,10 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#como-funcion
         .footer-shell { padding-block: 52px 24px; }
         .footer-main { grid-template-columns: 1fr 1fr; gap: 35px 22px; padding-bottom: 30px; }
         .footer-brand { grid-column: 1 / -1; } .footer-brand p { max-width: 400px; margin-top: 20px; }
-        .footer-contact > p:not(.footer-label) { font-size: 15px; } .whatsapp-link { font-size: 15px; gap: 8px; }
+        .footer-contact > p:not(.footer-label) { font-size: 15px; } .whatsapp-link { font-size: 15px; }
         .footer-bottom { display: grid; grid-template-columns: 1fr; gap: 10px; font-size: 12px; }
     }
-    @media (max-width: 359px) { .footer-main { column-gap: 16px; } .whatsapp-link { font-size: 14px; gap: 5px; } }
+    @media (max-width: 359px) { .footer-main { column-gap: 16px; } .whatsapp-link { font-size: 14px; } }
 
     @media (min-width: 1200px) {
         .footer-main { gap: var(--desktop-gap); }

@@ -21,7 +21,6 @@ const projects = [
                 <article class:list={['project', { 'project-featured': index === 0 }]} aria-labelledby={'project-title-' + index}>
                     <a class="project-image-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={'Abrir projeto ' + project.name + ' em nova aba'}>
                         <Image src={project.image} alt={'Preview do projeto conceitual ' + project.name} widths={[480, 800, 1200, project.image.width].filter((width, i, values) => width <= project.image.width && values.indexOf(width) === i)} sizes={index === 0 ? '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 96px) * .6), (max-width: 1199px) calc((100vw - 144px) * .6), 701px' : '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 92px) / 2), (max-width: 1199px) calc((100vw - 140px) / 2), 586px'} width={project.image.width} format="webp" quality={85} loading="lazy" class="project-image" />
-                        <span class="image-open" aria-hidden="true">↗</span>
                     </a>
                     <div class="project-info">
                         <div class="project-identity">
@@ -30,7 +29,7 @@ const projects = [
                         </div>
                         <div class="project-summary">
                             <p>{project.description}</p>
-                            <a class="text-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={'Ver projeto ' + project.name + ' em nova aba'}>Ver projeto <span aria-hidden="true">↗</span></a>
+                            <a class="text-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={'Ver projeto ' + project.name + ' em nova aba'}>Ver projeto</a>
                         </div>
                     </div>
                 </article>

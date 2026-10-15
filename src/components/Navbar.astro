@@ -12,14 +12,14 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#projetos', l
         <div class="desktop-nav hidden items-center gap-9 md:flex">
             {links.map(({ href, label }) => <a class="nav-link" href={href}>{label}</a>)}
         </div>
-        <a href="#contato" class="nav-cta hidden items-center gap-5 md:inline-flex">Quero meu site <span aria-hidden="true">↗</span></a>
+        <a href="#contato" class="nav-cta hidden items-center justify-center md:inline-flex">Quero meu site</a>
         <details class="mobile-navigation md:hidden">
             <summary class="menu-toggle" aria-label="Menu de navegação">
                 <span>Menu</span><span class="menu-lines" aria-hidden="true"><span></span><span></span></span>
             </summary>
             <div class="mobile-panel">
-                {links.map(({ href, label }) => <a class="mobile-link" href={href}>{label}<span aria-hidden="true">↗</span></a>)}
-                <a class="mobile-cta" href="#contato">Quero meu site <span aria-hidden="true">↗</span></a>
+                {links.map(({ href, label }) => <a class="mobile-link" href={href}>{label}</a>)}
+                <a class="mobile-cta" href="#contato">Quero meu site</a>
             </div>
         </details>
     </nav>
@@ -64,7 +64,7 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#projetos', l
     .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 5px; height: 1px; background: #c3a4ff; transform: scaleX(0); transform-origin: left; transition: transform 180ms; }
     .nav-link:hover::after { transform: scaleX(1); }
     .nav-link:hover { color: #c3a4ff; }
-    .nav-cta { min-height: 46px; padding: 10px 17px; border: 1px solid #d4bfd042; border-radius: 4px; color: #e7dce8; font-size: 14px; font-weight: 500; gap: 18px; transition: border-color 180ms, background 180ms; }
+    .nav-cta { min-height: 46px; padding: 10px 17px; border: 1px solid #d4bfd042; border-radius: 4px; color: #e7dce8; font-size: 14px; font-weight: 500; transition: border-color 180ms, background 180ms; }
     .nav-cta span { color: #cfb0e9; font-size: 20px; line-height: 1; }
     .nav-cta:hover { border-color: #d4bfd080; background: #d4bfd00a; }
     a:focus-visible, summary:focus-visible { outline: 2px solid #d3baff; outline-offset: 5px; }
@@ -77,7 +77,7 @@ const links = [{ href: '#servicos', label: 'Serviços' }, { href: '#projetos', l
     .mobile-panel { position: absolute; top: calc(100% + 8px); left: 16px; right: 16px; max-height: calc(100dvh - 94px); overflow-y: auto; overscroll-behavior: contain; padding: 12px 24px 24px; background: #19151f; border: 1px solid #59475c; border-radius: 4px; box-shadow: 0 24px 50px #0009; }
     .mobile-link { display: flex; justify-content: space-between; align-items: center; min-height: 60px; font-size: 20px; border-bottom: 1px solid #ffffff14; }
     .mobile-link span { color: #b99ae6; }
-    .mobile-cta { display: flex; justify-content: space-between; padding: 16px 18px; margin-top: 22px; background: #bc9bdf; color: #1c1423; border-radius: 4px; font-weight: 700; }
+    .mobile-cta { display: flex; align-items: center; justify-content: center; padding: 16px 18px; margin-top: 22px; background: #bc9bdf; color: #1c1423; border-radius: 4px; font-weight: 700; }
     @media (max-width: 1023px) { .nav-inner { padding-inline: 32px; } .desktop-nav { gap: 24px; } }
     @media (max-width: 767px) { .nav-inner { min-height: 70px; margin-inline: 20px; padding-inline: 0; } .brand-icon { width: 36px; height: 36px; } .brand-name { font-size: 19px; } .brand-descriptor { font-size: 9px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
